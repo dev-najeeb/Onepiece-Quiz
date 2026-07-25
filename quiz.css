@@ -8,11 +8,55 @@ body {
   padding: 0;
 }
 .quizContainer {
-  height: 70vh;
+  height: 75vh;
   width: 45vw;
-  margin-top: 25vh;
-  background: linear-gradient(135deg, #243760, #102c78);
+  margin-top: 18vh;
+  background: linear-gradient(135deg, #344c7e, #163a9c);
   backdrop-filter: blur(15px);
   border-radius: 10px;
-  box-shadow: 0 0 20px #352bf3c5;
+  box-shadow: 0 0 15px #040057c5;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+h1 {
+  color:  #e1f3ff;
+  text-align: center;
+  margin-top: 10px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 5rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-right: 40px;
+}
+.headingSpan {
+  color:#5978cb;
+  font-size: 6rem;
+}
+#startBtn {
+ height: 30px;
+ width: 200px;
+    background: linear-gradient(
+    to bottom,
+    #00518e 30%,
+    #448cf1 100%
+  );
+  background-attachment: fixed;
+  position: absolute;
+  margin-top: 430px;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+}
+.content{
+  margin-top: 10px;
+  height: 65vh;
+  width: 41vw;
+  display: grid;
+  padding: 30px;
+}
+.options{
+  height: 20px;
+  width: 250px;
+
 }

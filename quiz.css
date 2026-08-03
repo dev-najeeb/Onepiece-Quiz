@@ -33,7 +33,10 @@ h1 {
   color:#5978cb;
   font-size: 6rem;
 }
-#startBtn {
+#next{
+  display: none;
+}
+#quizBtn , #next {
  height: 30px;
  width: 200px;
     background: linear-gradient(
@@ -54,9 +57,36 @@ h1 {
   width: 41vw;
   display: grid;
   padding: 30px;
+  justify-content: center;
 }
 .options{
-  height: 20px;
-  width: 250px;
-
+  height: 30px;
+  width: auto;
+  background-color: rgb(132, 132, 255);
+  border: none;
+  font-size: 18px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+  display: none;
+}
+#question{
+  font-size: 23px;
+}
+#next.active-button{
+  display: inline;
+}
+.options:active{
+  scale: calc(0.90);
+}
+.hidden {
+  display: none;
+}
+.bgChange{
+  background: green;
+}
+.orBg{
+  background: linear-gradient(135deg, #344c7e, #163a9c);
+}
+.visible {
+  display: inline;
 }

@@ -1,24 +1,46 @@
 const Question = document.getElementById("question");
-const getQuestion = document.querySelector("#startBtn");
-const option1 = document.getElementById("option1")
-const option2 = document.getElementById("option2")
-const option3 = document.getElementById("option3")
-const option4 = document.getElementById("option4")
+const option1 = document.getElementById("option1");
+const option2 = document.getElementById("option2");
+const option3 = document.getElementById("option3");
+const option4 = document.getElementById("option4");
+const quizbtn = document.getElementById("quizBtn");
+const options = document.querySelectorAll(".options");
+const quizContainer = document.querySelector(".quizContainer");
+const nextBtn = document.querySelector("#next");
 
-// const QuestionIndex = 
-QuestionIndex = 0;
+currentIndex = 0;
 async function loadQuizData() {
-    const response = await fetch("./assets/quizData.json");
-    const quizData = await response.json();
-    console.log(quizData);
-    Question.innerText = quizData[0].question;
-    option1.innerText = quizData[0].options[0];
-    option2.innerText = quizData[1].options[1];
-    option3.innerText = quizData[2].options[2];
-    option4.innerText = quizData[3].options[3];
+  const response = await fetch("./assets/quizData.json");
+  const quizData = await response.json();
+  const currQuestion = quizData[currentIndex];
+  const option = currQuestion.options;
+  console.log(quizData);
+  Question.innerText = currQuestion.question;
+  option1.innerText = option[0];
+  option2.innerText = option[1];
+  option3.innerText = option[2];
+  option4.innerText = option[3];
+  let correctAnswer = currQuestion.correct;
+  options.forEach((SelcOption,index) => {
+    SelcOption.addEventListener("click", () => {
+      if (correctAnswer === index) {
+        quizContainer.classList.add("bgChange");
+        console.log("Correct answer!", correctAnswer);
+      }else {
+        console.log("Incorrect")
+      }
+    });
+    SelcOption.classList.add("visible");
+  });
 
-    
+  currentIndex++;
 }
-getQuestion.addEventListener("click",()=>{
-loadQuizData()
+quizbtn.addEventListener("click", () => {
+  nextBtn.classList.add("active-button")
+  quizbtn.classList.add(".hidden");
+    loadQuizData();
+});
+nextBtn.addEventListener("click",()=>{
+  loadQuizData();
 })
+

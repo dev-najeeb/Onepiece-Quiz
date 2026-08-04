@@ -7,40 +7,46 @@ const quizbtn = document.getElementById("quizBtn");
 const options = document.querySelectorAll(".options");
 const quizContainer = document.querySelector(".quizContainer");
 const nextBtn = document.querySelector("#next");
-
 currentIndex = 0;
+let quizData;
 async function loadQuizData() {
   const response = await fetch("./assets/quizData.json");
-  const quizData = await response.json();
+  quizData = await response.json();
+  console.log(quizData);
+}
+loadQuizData();
+function displayData() {
   const currQuestion = quizData[currentIndex];
   const option = currQuestion.options;
-  console.log(quizData);
+  const correctAnswer = currQuestion.correct;
   Question.innerText = currQuestion.question;
   option1.innerText = option[0];
   option2.innerText = option[1];
   option3.innerText = option[2];
   option4.innerText = option[3];
-  let correctAnswer = currQuestion.correct;
-  options.forEach((SelcOption,index) => {
-    SelcOption.addEventListener("click", () => {
-      if (correctAnswer === index) {
-        quizContainer.classList.add("bgChange");
-        console.log("Correct answer!", correctAnswer);
-      }else {
-        console.log("Incorrect")
-      }
-    });
-    SelcOption.classList.add("visible");
-  });
-
   currentIndex++;
 }
 quizbtn.addEventListener("click", () => {
-  nextBtn.classList.add("active-button")
+  console.log("function ran ");
+  nextBtn.classList.add("active-button");
   quizbtn.classList.add(".hidden");
-    loadQuizData();
+  displayData();
 });
-nextBtn.addEventListener("click",()=>{
-  loadQuizData();
-})
+nextBtn.addEventListener("click", () => {
+  quizContainer.classList.remove("bgChange", "wrongAnws");
+  console.log("function ran");
+  // currentIndex ++;
+});
 
+options.forEach((SelcOption, index) => {
+  SelcOption.addEventListener("click", () => {
+    if (correctAnswer === index) {
+      quizContainer.classList.add("bgChange");
+      console.log("Correct answer!", correctAnswer);
+    } else {
+      quizContainer.classList.add("wrongAnws");
+      console.log("Incorrect");
+    }
+  });
+  SelcOption.classList.add("visible");
+});

@@ -75,6 +75,9 @@ h1 {
 #next.active-button{
   display: inline;
 }
+.wrongAnws{
+  background: red;
+}
 .options:active{
   scale: calc(0.90);
 }
@@ -89,4 +92,7 @@ h1 {
 }
 .visible {
   display: inline;
+}
+.noClick {
+  pointer-events: none;
 }

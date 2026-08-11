@@ -1,5 +1,6 @@
 body {
-  background: linear-gradient(135deg, #0f172a, #1e293b);
+  /* background: linear-gradient(135deg, #0f172a, #1e293b); */
+  background: linear-gradient(135deg, #0b192c, #1e3e62);
   background-attachment: fixed;
   overflow: hidden;
   display: flex;
@@ -11,10 +12,11 @@ body {
   height: 75vh;
   width: 45vw;
   margin-top: 18vh;
-  background: linear-gradient(135deg, #344c7e, #163a9c);
+  background: #153448;
+   border: 2px solid #dfc06b;
+   box-shadow: 0 0 15px rgba(223, 192, 107, 0.3);
   backdrop-filter: blur(15px);
   border-radius: 10px;
-  box-shadow: 0 0 15px #040057c5;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -68,15 +70,17 @@ h1 {
   border-radius: 20px;
   box-shadow: 0 0 10px rgb(0, 0, 0);
   display: none;
+  color: rgba(255, 255, 255, 0.852);
 }
 #question{
   font-size: 23px;
+  color: #e1f3ff;
 }
 #next.active-button{
   display: inline;
 }
 .wrongAnws{
-  background: red;
+  background: rgb(168, 0, 0);
 }
 .options:active{
   scale: calc(0.90);
@@ -85,7 +89,7 @@ h1 {
   display: none;
 }
 .bgChange{
-  background: green;
+  background: rgba(0, 128, 0, 0.658);
 }
 .orBg{
   background: linear-gradient(135deg, #344c7e, #163a9c);
@@ -93,6 +97,34 @@ h1 {
 .visible {
   display: inline;
 }
-.noClick {
-  pointer-events: none;
+.popUp{
+  height: 300px;
+  width: 450px;
+  background: #004ba158;
+  border: 2px solid #dfc06b;
+  box-shadow: 0 0 15px rgba(223, 192, 107, 0.3);
+  border-radius: 10px;
+  position: absolute;
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: last baseline;
+  display: none;
+              
+}
+
+#Memory-match, #restart {
+  height: 40px;
+  width: auto;
+  background: #0047aa;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 255, 0.379);
+  box-shadow: 0px 0px 10px rgb(2, 2, 2);
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 15px;
+  color: #e1f3ff;
+}
+button:active{
+  transform: scale(1.1);
 }

@@ -1,73 +1,94 @@
-[
-  {
-    "difficulty": "easy",
-    "question": "Who is the captain of the Straw Hat Pirates?",
-    "options": ["Roronoa Zoro", "Monkey D. Luffy", "Sanji", "Portgas D. Ace"],
-    "correct": 1
-  },
-  {
-    "difficulty": "easy",
-    "question": "Who is the navigator of the Straw Hat Pirates?",
-    "options": ["Robin", "Nami", "Vivi", "Perona"],
-    "correct": 1
-  },
-  {
-    "difficulty": "easy",
-    "question": "What is Sanji's dream?",
-    "options": [
-      "Become the Pirate King",
-      "Find the All Blue",
-      "Become the strongest swordsman",
-      "Map the whole world"
+{
+  "difficulties": {
+    "easy": [
+      {
+        "question": "Who is the captain of the Straw Hat Pirates?",
+        "options": ["Roronoa Zoro", "Monkey D. Luffy", "Sanji", "Portgas D. Ace"],
+        "correct": 1
+      },
+      {
+        "question": "Who is the navigator of the Straw Hat Pirates?",
+        "options": ["Robin", "Nami", "Vivi", "Perona"],
+        "correct": 1
+      },
+      {
+        "question": "What is Sanji's dream?",
+        "options": [
+          "Become the Pirate King",
+          "Become the strongest swordsman",
+          "Map the whole world"
+        ],
+        "correct": 1
+      },
+      {
+        "question": "Which Straw Hat was the first to officially join Luffy?",
+        "options": ["Nami", "Usopp", "Zoro", "Sanji"],
+        "correct": 2
+      },
+      {
+        "question": "What color is Monkey D. Luffy's straw hat?",
+        "options": ["Blue", "Red", "Yellow", "Green"],
+        "correct": 2
+      }
     ],
-    "correct": 1
-  },
-  {
-    "difficulty": "medium",
-    "question": "Which Straw Hat was the first to officially join Luffy?",
-    "options": ["Nami", "Usopp", "Zoro", "Sanji"],
-    "correct": 2
-  },
-  {
-    "difficulty": "medium",
-    "question": "What is Franky's real name?",
-    "options": ["Cutty Flam", "Iceburg", "Tom", "Franklin D. Star"],
-    "correct": 0
-  },
-  {
-    "difficulty": "medium",
-    "question": "Who taught Zoro the 'Foxfire Style'?",
-    "options": ["Dracule Mihawk", "Kin'emon", "Kozuki Oden", "Hyogoro"],
-    "correct": 1
-  },
-  {
-    "difficulty": "medium",
-    "question": "Which Devil Fruit does Trafalgar Law possess?",
-    "options": [
-      "Yami Yami no Mi",
-      "Ope Ope no Mi",
-      "Mera Mera no Mi",
-      "Ito Ito no Mi"
+    "medium": [
+      {
+        "question": "What is the name of the island where the Straw Hats first met Trafalgar Law?",
+        "options": ["Dressrosa", "Punk Hazard", "Sabaody Archipelago", "Fish-Man Island"],
+        "correct": 1
+      },
+      {
+        "question": "What is Franky's real name?",
+        "options": ["Cutty Flam", "Iceburg", "Tom", "Franklin D. Star"],
+        "correct": 0
+      },
+      {
+        "question": "Who taught Zoro the 'Foxfire Style'?",
+        "options": ["Dracule Mihawk", "Kin'emon", "Kozuki Oden", "Hyogoro"],
+        "correct": 1
+      },
+      {
+        "question": "Which Devil Fruit does Trafalgar Law possess?",
+        "options": [
+          "Yami Yami no Mi",
+          "Ope Ope no Mi",
+          "Mera Mera no Mi",
+          "Ito Ito no Mi"
+        ],
+        "correct": 1
+      },
+      {
+        "question": "What is the full name of the scientist who rebuilt the Straw Hats' ship after Water 7?",
+        "options": ["Tom", "Iceburg", "Franky", "Sakon"],
+        "correct": 2
+      }
     ],
-    "correct": 1
-  },
-
-  {
-    "difficulty": "hard",
-    "question": "What is the name of the little boat strawhats use?",
-    "options": ["Mini Merry", "Merry Go", "Merry Queen", "Golden Merry"],
-    "correct": 0
-  },
-  {
-    "difficulty": "hard",
-    "question": "Who gave kaido a scar?",
-    "options": ["Zoro", "Kin'emon", "Dracule Mihawk", "Shanks"],
-    "correct": 0
-  },
-  {
-    "difficulty": "hard",
-    "question": "Which Straw Hat first learned about Joy Boy's apology from the Poneglyph in Fish-Man Island?",
-    "options": ["Nami", "Robin", "Jinbe", "Luffy"],
-    "correct": 1
+    "hard": [
+      {
+        "question": "Who was the doctor at Gol D. Roger's crew?",
+        "options": ["Crocus", "Buggy", "Kozuki Oden", "Kozuki Toki"],
+        "correct": 0
+      },
+      {
+        "question": "What is the name of the Sea King monster that bit off Shanks' arm in the first chapter of One Piece?",
+        "options": ["Coastal King", "Coastal Monster", "The Sea Giant", "The Sea King"],
+        "correct": 0
+      },
+      {
+        "question": "Which Straw Hat first learned about Joy Boy's apology from the Poneglyph in Fish-Man Island?",
+        "options": ["Nami", "Robin", "Jinbe", "Luffy"],
+        "correct": 1
+      },
+      {
+        "question": "Which instrument did Brook play to record Binks' sake as his crew was all dying at the final moment?",
+        "options": ["Guitar", "Piano", "Violin", "Flute"],
+        "correct": 2
+      },
+      {
+        "question": "What ancient weapon is hidden under the Sea Forest of Fish-Man Island?",
+        "options": ["Pluton", "Poseidon", "Uranus", "Mera Mera"],
+        "correct": 1
+      }
+    ]
   }
-]
+}

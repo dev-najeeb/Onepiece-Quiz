@@ -1,6 +1,5 @@
 body {
-  background-color: #1C2321;
-  background-attachment: fixed;
+  background-color: #1c2321;
   font-family: "Georgia", serif;
   overflow: hidden;
   display: flex;
@@ -12,9 +11,9 @@ body {
   height: 75vh;
   width: 65vw;
   margin-top: 18vh;
-  background-color: #F4EBD9;
+  background-color: #f4ebd9;
   border: 3px solid #1a1a1a;
-   box-shadow: 8px 8px 0px #A62B2B;
+  box-shadow: 8px 8px 0px #a62b2b;
   backdrop-filter: blur(15px);
   position: absolute;
   display: flex;
@@ -40,10 +39,10 @@ h1 {
   margin-bottom: 20px;
   color: #f7f4eb;
   text-shadow:
-    -3px -3px 0 #BC2423,
-    3px -3px 0 #BC2423,
-    -3px 3px 0 #BC2423,
-    3px 3px 0 #BC2423;
+    -3px -3px 0 #bc2423,
+    3px -3px 0 #bc2423,
+    -3px 3px 0 #bc2423,
+    3px 3px 0 #bc2423;
 }
 p {
   font-size: 4rem;
@@ -53,23 +52,28 @@ p {
 #next {
   height: 30px;
   width: 200px;
-  background-color: #1E2538; 
-  color: #F7F4EB;
-  font-family: 'Georgia', serif;
+  background-color: #a62b2b;
+  color: #f4ebd9;
+  box-shadow: 0px 5px 0px #1e2538;
+  font-family: "Georgia", serif;
   font-weight: bold;
   letter-spacing: 1px;
   margin-top: 25px;
-  border: 2px solid #1A1A1A;
+  border: 2px solid #1a1a1a;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
-   position: absolute;
+  position: absolute;
   margin-top: 430px;
-  display:none;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: none;
 }
 #next:hover {
-  background-color: #BC2423;
-  border-color: #BC2423;
+  background-color: #d99b26;
+  color: #1e2538;
+  border-color: #1e2538;
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 0px #1e2538;
 }
 
 .content {
@@ -84,50 +88,68 @@ p {
   display: none;
   height: 30px;
   width: auto;
-  background: #A62B2B; 
-  color: #F4EBD9; 
-  font-family: 'Georgia', serif;
-  font-size: 1.1rem; 
+  background: #a62b2b;
+  color: #f4ebd9;
+  font-family: "Georgia", serif;
+  font-size: 1.1rem;
   font-weight: bold;
   letter-spacing: 1px;
-  border: 2px solid #1E2538; 
-  border-radius: 50px; 
+  border: 2px solid #1e2538;
+  border-radius: 50px;
   box-shadow: none;
   cursor: pointer;
-  transition: all 0.2s ease-in-out
+  transition: all 0.2s ease-in-out;
+  animation: mangaPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes mangaPop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 .options:hover {
-   background-color: #D99B26;
-  color: #1E2538;
-  border-color: #1E2538;
-  transform: translateY(-2px); 
-  box-shadow: 0px 4px 0px #1E2538; 
+  background-color: #d99b26;
+  color: #1e2538;
+  border-color: #1e2538;
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 0px #1e2538;
 }
 #question {
-  font-family: 'Georgia', serif;
+  display: block;
+  font-family: "Georgia", serif;
   font-size: 1.6rem;
-  color: #1E2538; 
+  color: #1e2538;
   text-align: center;
   font-weight: 700;
   line-height: 1.7;
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
   letter-spacing: 0.5px;
 }
+
 #next.active-button {
   display: inline;
 }
 .correctAnws {
-  background-color: #2E6F40 !important; /* Soft bamboo green */
-  color: #F4EBD9 !important;
-  border-color: #1E2538 !important;
-  box-shadow: 0px 5px 0px #1E2538; /* Crisp 3D ink shadow */
+  background-color: #2e6f40 !important;
+  color: #f4ebd9 !important;
+  border-color: #1e2538 !important;
+  box-shadow: 0px 5px 0px #1e2538;
 }
 .wrongAnws {
-  background-color: #555555 !important; /* Crimson red */
-  color: #F4EBD9 !important;
-  border-color: #1E2538 !important;
-  box-shadow: 0px 5px 0px #1E2538;
+  background-color: #555555 !important;
+  color: #f4ebd9 !important;
+  border-color: #1e2538 !important;
+  box-shadow: 0px 5px 0px #1e2538;
 }
+
 .options:active {
   scale: calc(0.9);
 }
@@ -188,12 +210,12 @@ button:active {
   margin: 10px 0;
   border: 3px solid #1a1a1a;
   cursor: pointer;
-    transition: all 1s ease;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .diffBtn:hover {
   background-color: #bc2423;
   color: #f7f4eb;
   border-color: #bc2423;
   transform: translateY(-2px);
-  box-shadow: 0px 4px 0px #1a1a1a;
+  box-shadow: 0px 3px 0px #1a1a1a;
 }

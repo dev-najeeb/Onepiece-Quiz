@@ -12,10 +12,13 @@ const mediumBtn = document.querySelector("#medium");
 const hardBtn = document.querySelector("#hard");
 const p = document.querySelector("#pHeading");
 const diffContainer = document.querySelector(".difficulties");
-
+let scoreCard = document.querySelector(".scoreCard");
+let difficultyBox = document.querySelector(".currDifficulty")
+const medium = document.createElement('button')
+score = 0
 currentIndex = 0;
 difficultyIndex = 0;
-let lastIndex = 10;
+let lastIndex = 5;
 let quizData;
 let questionData;
 let currQuestion;
@@ -24,6 +27,7 @@ async function loadQuizData() {
   quizData = await response.json();
   console.log(quizData);
 }
+
 loadQuizData();
 function displayData1() {
   currData = quizData;
@@ -36,7 +40,10 @@ function displayData1() {
   option3.innerText = options[2];
   option4.innerText = options[3];
   currentIndex++;
-}
+  difficultyBox.innerText = "Difficulty: Easy"
+
+  }
+
 easyBtn.addEventListener("click", () => {
   difficultyIndex = 1;
   displayData1();
@@ -45,12 +52,16 @@ easyBtn.addEventListener("click", () => {
   mediumBtn.classList.add("hidden");
   easyBtn.classList.add("hidden");
   p.classList.add("hidden");
+  scoreCard.classList.add("visible")
+  difficultyBox.classList.add("visible")
   options.forEach((btn) => {
     btn.classList.add("visible");
   });
   nextBtn.classList.add("active-button");
+  nextBtn.innerText = "Select the Correct Option"
+    nextBtn.classList.add("clickBlocker")
 });
-function displayData2() {
+ function displayData2() {
   currData = quizData;
   questionData = currData.difficulties.medium;
   currQuestion = questionData[currentIndex];
@@ -61,6 +72,8 @@ function displayData2() {
   option3.innerText = options[2];
   option4.innerText = options[3];
   currentIndex++;
+  difficultyBox.innerText = "Difficulty: Medium"
+
 }
 mediumBtn.addEventListener("click", () => {
   difficultyIndex = 2;
@@ -74,6 +87,10 @@ mediumBtn.addEventListener("click", () => {
     btn.classList.add("visible");
   });
   nextBtn.classList.add("active-button");
+  nextBtn.innerText = "Select the Correct Option"
+    nextBtn.classList.add("clickBlocker")
+     scoreCard.classList.add("visible")
+  difficultyBox.classList.add("visible")
 });
 function displayData3() {
   currData = quizData;
@@ -86,6 +103,8 @@ function displayData3() {
   option3.innerText = options[2];
   option4.innerText = options[3];
   currentIndex++;
+  difficultyBox.innerText = "Difficulty: Hard"
+
 }
 hardBtn.addEventListener("click", () => {
   difficultyIndex = 3;
@@ -95,33 +114,41 @@ hardBtn.addEventListener("click", () => {
   mediumBtn.classList.add("hidden");
   easyBtn.classList.add("hidden");
   p.classList.add("hidden");
-  nextBtn.classList.add("active-button")
+   scoreCard.classList.add("visible")
+  difficultyBox.classList.add("visible")
+  nextBtn.classList.add("active-button");
   options.forEach((btn) => {
     btn.classList.add("visible");
   });
+  nextBtn.innerText = "Select the Correct Option"
+    nextBtn.classList.add("clickBlocker")
 });
-
+scoreCard.innerText = "SCORE : " + score;
 options.forEach((SelcOption, index) => {
   SelcOption.addEventListener("click", (event) => {
     const clickedBtn = event.target;
     const correctAnswer = currQuestion.correct;
     if (correctAnswer === index) {
-      clickedBtn.classList.add("correctAnws");
+      score += 100; 
+      scoreCard.innerText = "SCORE : " + score;
+      scoreCard.classList.add("scoreAnimation")
+      clickedBtn.classList.add("correctAnws","clickBlocker");
       clickedBtn.classList.remove("wrongAnws");
       console.log("Correct answer!", correctAnswer);
-    } else {
+      nextBtn.classList.remove("clickBlocker");
+      nextBtn.innerText = "next =>"
+    } else if(correctAnswer !== index) {
+      nextBtn.classList.add("wrongAnswAnimation")
       clickedBtn.classList.add("wrongAnws");
       console.log("Incorrect");
     }
   });
 });
 nextBtn.addEventListener("click", () => {
-  if (currentIndex === lastIndex) {
-    console.log("this was the last question");
-    return;
-  }
   if (difficultyIndex === 1) {
     displayData1();
+    nextBtn.innerText = "Select the Correct Option"
+    nextBtn.classList.add("clickBlocker")
   } else if (difficultyIndex === 2) {
     displayData2();
   } else if (difficultyIndex === 3) {
@@ -129,6 +156,6 @@ nextBtn.addEventListener("click", () => {
   }
   console.log("function ran");
   options.forEach((opt) => {
-    opt.classList.remove("correctAnws", "wrongAnws");
+    opt.classList.remove("correctAnws", "wrongAnws","clickBlocker","scoreAnimation");
   });
 });

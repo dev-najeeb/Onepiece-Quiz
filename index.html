@@ -1,40 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="quiz.css">
-        <link
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="quiz.css" />
+    <link
       rel="icon"
       href="../assets/Crountch-One-Piece-Jolly-Roger-Luffys-flag.256.png"
       sizes="20px"
     />
     <title>One Piece Quiz</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>One Piece Quiz</h1>
-    <!-- <span class="headingSpan">Quiz</span>  -->
     <div class="quizContainer">
-        <div class="content">
-            <div class="difficulties">
-            <p id="pHeading">Choose Difficulty</p>
-                <button class="diffBtn" id="easy">Easy</button>
-                <button class="diffBtn" id="medium">Medium</button>
-                <button class="diffBtn" id="hard">Hard</button>
-            </div>
-
-         <span id="question"></span>
-         <button class="options" id="option1"></button>
-         <button class="options" id="option2"></button>
-         <button class="options" id="option3"></button>
-         <button class="options" id="option4"></button>
+      <div class="content">
+        <div class="difficulties">
+          <p id="pHeading">Choose Difficulty</p>
+          <button class="diffBtn" id="easy">Easy</button>
+          <button class="diffBtn" id="medium">Medium</button>
+          <button class="diffBtn" id="hard">Hard</button>
         </div>
-    <button id="next">Next -></button>
-</div>
-<div class="popUp">
-    <button id="Memory-match">Jump to the Memory-match Game</button>
-    <button id="restart">Restart the Quiz</button>
-</div>
+        <span id="question"></span>
+        <button class="options" id="option1"></button>
+        <button class="options" id="option2"></button>
+        <button class="options" id="option3"></button>
+        <button class="options" id="option4"></button>
+      </div>
+      <div class="currDifficulty"></div>
+      <div class="scoreCard">SCORE :</div>
+      <button id="next">Next -></button>
+    </div>
+    <div class="popUp">
+      <button id="Memory-match">Jump to the Memory-match Game</button>
+      <button id="restart">Restart the Quiz</button>
+    </div>
     <script src="quiz.js"></script>
-</body>
+  </body>
 </html>

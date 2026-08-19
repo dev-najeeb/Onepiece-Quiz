@@ -3,7 +3,12 @@
     "easy": [
       {
         "question": "Who is the captain of the Straw Hat Pirates?",
-        "options": ["Roronoa Zoro", "Monkey D. Luffy", "Sanji", "Portgas D. Ace"],
+        "options": [
+          "Roronoa Zoro",
+          "Monkey D. Luffy",
+          "Sanji",
+          "Portgas D. Ace"
+        ],
         "correct": 1
       },
       {
@@ -16,9 +21,10 @@
         "options": [
           "Become the Pirate King",
           "Become the strongest swordsman",
+          "find the all blue",
           "Map the whole world"
         ],
-        "correct": 1
+        "correct": 2
       },
       {
         "question": "Which Straw Hat was the first to officially join Luffy?",
@@ -34,7 +40,12 @@
     "medium": [
       {
         "question": "What is the name of the island where the Straw Hats first met Trafalgar Law?",
-        "options": ["Dressrosa", "Punk Hazard", "Sabaody Archipelago", "Fish-Man Island"],
+        "options": [
+          "Dressrosa",
+          "Punk Hazard",
+          "Sabaody Archipelago",
+          "Fish-Man Island"
+        ],
         "correct": 1
       },
       {
@@ -71,7 +82,12 @@
       },
       {
         "question": "What is the name of the Sea King monster that bit off Shanks' arm in the first chapter of One Piece?",
-        "options": ["Coastal King", "Coastal Monster", "The Sea Giant", "The Sea King"],
+        "options": [
+          "Coastal King",
+          "Coastal Monster",
+          "The Sea Giant",
+          "The Sea King"
+        ],
         "correct": 0
       },
       {

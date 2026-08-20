@@ -81,7 +81,7 @@ p {
   height: 65vh;
   width: 41vw;
   display: grid;
-  padding: 35px;
+  padding: 25px;
   justify-content: center;
 }
 .options {
@@ -89,6 +89,7 @@ p {
   height: 30px;
   width: auto;
   background: #a62b2b;
+  margin-bottom: 20px;
   color: #f4ebd9;
   font-family: "Georgia", serif;
   font-size: 1.1rem;
@@ -130,7 +131,7 @@ p {
   text-align: center;
   font-weight: 700;
   line-height: 1.7;
-  margin-top: 5px;
+  margin-top: 20px;
   letter-spacing: 0.5px;
 }
 
@@ -164,20 +165,6 @@ p {
       0px 6px 0px 10px #1e2538,
       0px 0px 35px rgba(219, 155, 38, 0.9);
   }
-}
-.popUp {
-  height: 300px;
-  width: 450px;
-  background: #004ba158;
-  border: 2px solid #dfc06b;
-  box-shadow: 0 0 15px rgba(223, 192, 107, 0.3);
-  border-radius: 10px;
-  position: absolute;
-  margin-top: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: last baseline;
-  display: none;
 }
 #Memory-match,
 #restart {
@@ -236,7 +223,7 @@ button:active {
   font-family: 'Georgia', serif;
   font-size: 0.9rem;
   font-weight: 900;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: 2px;
   padding: 8px 16px; 
   display: inline;
@@ -253,6 +240,8 @@ button:active {
 }
 .scoreCard {
   margin-left: 600px;
+  padding-left: 10px;
+ 
 }
 .scoreCard:hover {
   transform: scale(1.1);

@@ -14,11 +14,11 @@ const p = document.querySelector("#pHeading");
 const diffContainer = document.querySelector(".difficulties");
 let scoreCard = document.querySelector(".scoreCard");
 let difficultyBox = document.querySelector(".currDifficulty");
-const medium = document.createElement("button");
-score = 0;
-let currentFuntion;
-currentIndex = 0;
-difficultyIndex = 0;
+const diffTransition = document.createElement("button");
+let score = 0;
+let currentIndex = 0;
+let currentFunction;
+let difficultyIndex = 0;
 let lastIndex = 5;
 let quizData;
 let questionData;
@@ -31,7 +31,7 @@ async function loadQuizData() {
 
 loadQuizData();
 function displayData1() {
-  currentFuntion = displayData1;
+  currentFunction = displayData1;
   currData = quizData;
   questionData = currData.difficulties.easy;
   currQuestion = questionData[currentIndex];
@@ -43,35 +43,21 @@ function displayData1() {
   option4.innerText = options[3];
   currentIndex++;
   difficultyBox.innerText = "Difficulty: Easy";
-  if(currentIndex === lastIndex) {
-    nextBtn.classList.add("hidden")
-    console.log("this is the last Question")
-    medium.classList.add("medium")
-    medium.innerText = "Be a Mighty Pirate"
-    medium.addEventListener("onclick",() => {
-       displayData2()
-    })
-  }
 }
 easyBtn.addEventListener("click", () => {
   difficultyIndex = 1;
   displayData1();
   diffContainer.style.display = "none";
-  hardBtn.classList.add("hidden");
-  mediumBtn.classList.add("hidden");
-  easyBtn.classList.add("hidden");
-  p.classList.add("hidden");
-  scoreCard.classList.add("visible");
-  difficultyBox.classList.add("visible");
-  options.forEach((btn) => {
-    btn.classList.add("visible");
-  });
+  showOptions();
+  hideElements(hardBtn, mediumBtn, easyBtn);
   nextBtn.classList.add("active-button");
   nextBtn.innerText = "Select the Correct Option";
   nextBtn.classList.add("clickBlocker");
+  showElements(scoreCard, difficultyBox);
 });
 function displayData2() {
-  currentFuntion = displayData2;
+  difficultyIndex = 2;
+  currentFunction = displayData2;
   currData = quizData;
   questionData = currData.difficulties.medium;
   currQuestion = questionData[currentIndex];
@@ -88,21 +74,16 @@ mediumBtn.addEventListener("click", () => {
   difficultyIndex = 2;
   displayData2();
   diffContainer.style.display = "none";
-  hardBtn.classList.add("hidden");
-  mediumBtn.classList.add("hidden");
-  easyBtn.classList.add("hidden");
-  p.classList.add("hidden");
-  options.forEach((btn) => {
-    btn.classList.add("visible");
-  });
+  showOptions();
+  hideElements(hardBtn, mediumBtn, easyBtn);
   nextBtn.classList.add("active-button");
   nextBtn.innerText = "Select the Correct Option";
   nextBtn.classList.add("clickBlocker");
-  scoreCard.classList.add("visible");
-  difficultyBox.classList.add("visible");
+  showElements(scoreCard, difficultyBox);
 });
 function displayData3() {
-  currentFuntion = displayData3;
+  currentFunction = displayData3;
+  difficultyIndex = 3
   currData = quizData;
   questionData = currData.difficulties.hard;
   currQuestion = questionData[currentIndex];
@@ -119,18 +100,12 @@ hardBtn.addEventListener("click", () => {
   difficultyIndex = 3;
   displayData3();
   diffContainer.style.display = "none";
-  hardBtn.classList.add("hidden");
-  mediumBtn.classList.add("hidden");
-  easyBtn.classList.add("hidden");
-  p.classList.add("hidden");
-  scoreCard.classList.add("visible");
-  difficultyBox.classList.add("visible");
+  showOptions();
+  hideElements(hardBtn, mediumBtn, easyBtn);
   nextBtn.classList.add("active-button");
-  options.forEach((btn) => {
-    btn.classList.add("visible");
-  });
   nextBtn.innerText = "Select the Correct Option";
   nextBtn.classList.add("clickBlocker");
+  showElements(scoreCard, difficultyBox);
 });
 scoreCard.innerText = "Bounty : " + score;
 options.forEach((SelcOption, index) => {
@@ -138,20 +113,17 @@ options.forEach((SelcOption, index) => {
     const clickedBtn = event.target;
     const correctAnswer = currQuestion.correct;
     if (correctAnswer === index) {
-      if(currentFuntion === displayData1) {
+      if (currentFunction === displayData1) {
         score += 1000;
-      scoreCard.innerText = "Bounty: " + score;
-      } 
-      else if(currentFuntion === displayData2) {
-        score += 10000
-      scoreCard.innerText = "Bounty: " + score;
+        scoreCard.innerText = "Bounty: " + score;
+      } else if (currentFunction === displayData2) {
+        score += 10000;
+        scoreCard.innerText = "Bounty: " + score;
+      } else if (currentFunction === displayData3) {
+        score += 1000000;
+        scoreCard.innerText = "Bounty: " + score;
       }
-      else if(currentFuntion === displayData3) {
-        score += 1000000
-      scoreCard.innerText = "Bounty: " + score;
-
-      }
-      // scoreCard.innerText = "SCORE : " + score;
+      jumpDifficulties();
       scoreCard.classList.add("scoreAnimation");
       clickedBtn.classList.add("correctAnws", "clickBlocker");
       clickedBtn.classList.remove("wrongAnws");
@@ -165,21 +137,25 @@ options.forEach((SelcOption, index) => {
     }
   });
 });
-nextBtn.addEventListener("click", () => {
+nextBtn.onclick = () => {
+  console.log("nextbtn is clicked");
+  nextBtn.innerText = "Select the Correct Option";
+  nextBtn.classList.add("clickBlocker");
   if (difficultyIndex === 1) {
     displayData1();
-    nextBtn.innerText = "Select the Correct Option";
-    nextBtn.classList.add("clickBlocker");
   } else if (difficultyIndex === 2) {
     displayData2();
-      nextBtn.innerText = "Select the Correct Option";
+    nextBtn.innerText = "Select the Correct Option";
     nextBtn.classList.add("clickBlocker");
   } else if (difficultyIndex === 3) {
     displayData3();
-      nextBtn.innerText = "Select the Correct Option";
+    nextBtn.innerText = "Select the Correct Option";
     nextBtn.classList.add("clickBlocker");
   }
+  Optioreset();
   console.log("function ran");
+}
+function Optioreset() {
   options.forEach((opt) => {
     opt.classList.remove(
       "correctAnws",
@@ -188,4 +164,59 @@ nextBtn.addEventListener("click", () => {
       "scoreAnimation",
     );
   });
-});
+}
+function showOptions() {
+  options.forEach((opt) => {
+    opt.classList.add("visible");
+  });
+}
+function jumpDifficulties() {
+  if (currentIndex === lastIndex) {
+    console.log("this is the marine recruit difficulty");
+    if (!quizContainer.contains(diffTransition)) {
+      quizContainer.append(diffTransition);
+    }
+    currentIndex = 0;
+    difficultyTransition(diffTransition);
+    hideElements(nextBtn)
+  }
+}
+function difficultyTransition(element) {
+  element.classList.remove("hidden");
+  element.classList.add("diffTransitions", "active-button");
+  if(difficultyIndex === 1){
+    element.innerText = "Be a Mighty Pirate"
+  }else if(difficultyIndex === 2) {
+    element.innerText = "Be a Mighty Yonko"
+  }
+  element.onclick = () => {
+    if (difficultyIndex === 1) {
+      displayData2();
+    } else if (difficultyIndex === 2) {
+      displayData3();
+    }
+    Optioreset();
+    element.classList.remove("active-button");
+    element.classList.add("hidden");
+    enableNextbtn();
+  };
+  console.log("Transitionbtn is clicked");
+}
+function enableNextbtn() {
+  nextBtn.classList.remove("hidden");
+  nextBtn.classList.add("active-button", "clickBlocker");
+  nextBtn.innerText = "Select the Correct Option";
+  nextBtn.classList.add("clickBlocker");
+}
+function hideElements(...elements) {
+  elements.forEach((element) => {
+    element.classList.add("hidden");
+    element.classList.remove("active-button");
+  });
+}
+function showElements(...elements) {
+  elements.forEach((element) => {
+    element.classList.add("visible");
+    element.classList.add("active-button");
+  });
+}

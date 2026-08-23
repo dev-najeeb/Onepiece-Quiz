@@ -15,7 +15,13 @@ const diffContainer = document.querySelector(".difficulties");
 let scoreCard = document.querySelector(".scoreCard");
 let difficultyBox = document.querySelector(".currDifficulty");
 const diffTransition = document.createElement("button");
-let score = 0;
+let PopUp = document.querySelector(".popUp");
+let popupBackdrop = document.querySelector(".popupBackdrop");
+let initialBounty = "0"
+let beginnerBounty = 0 ;
+let VeteranBounty = 0;
+let LegendBounty = 0;
+
 let currentIndex = 0;
 let currentFunction;
 let difficultyIndex = 0;
@@ -107,21 +113,21 @@ hardBtn.addEventListener("click", () => {
   nextBtn.classList.add("clickBlocker");
   showElements(scoreCard, difficultyBox);
 });
-scoreCard.innerText = "Bounty : " + score;
+scoreCard.innerText = "Bounty : " + initialBounty;
 options.forEach((SelcOption, index) => {
   SelcOption.addEventListener("click", (event) => {
     const clickedBtn = event.target;
     const correctAnswer = currQuestion.correct;
     if (correctAnswer === index) {
       if (currentFunction === displayData1) {
-        score += 1000;
-        scoreCard.innerText = "Bounty: " + score;
+        beginnerBounty += 1000000;
+        scoreCard.innerText = "Bounty: " + beginnerBounty;
       } else if (currentFunction === displayData2) {
-        score += 10000;
-        scoreCard.innerText = "Bounty: " + score;
+        VeteranBounty += 10000000;
+        scoreCard.innerText = "Bounty: " + VeteranBounty;
       } else if (currentFunction === displayData3) {
-        score += 1000000;
-        scoreCard.innerText = "Bounty: " + score;
+        LegendBounty += 1000000000;
+        scoreCard.innerText = "Bounty: " + LegendBounty;
       }
       jumpDifficulties();
       scoreCard.classList.add("scoreAnimation");
@@ -179,6 +185,12 @@ function jumpDifficulties() {
     currentIndex = 0;
     difficultyTransition(diffTransition);
     hideElements(nextBtn)
+    if(difficultyIndex === 3) {
+      hideElements(diffTransition);
+      PopUp.classList.add("visible");
+      popupBackdrop.classList.add("visible");
+
+    }
   }
 }
 function difficultyTransition(element) {

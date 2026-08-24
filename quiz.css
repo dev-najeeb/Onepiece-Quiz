@@ -70,7 +70,8 @@ p {
   transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: none;
 }
-#next {
+#next,
+.diffTransitions {
   box-sizing: border-box;
   min-height: 30px;
   max-width: 100%;
@@ -82,14 +83,16 @@ p {
 .diffTransitions.active-button {
   display: inline;
 }
-#next:hover {
+#next:hover,
+.diffTransitions:hover {
   background-color: #d99b26;
   color: #1e2538;
   border-color: #1e2538;
   transform: translateY(-3px);
   box-shadow: 0px 8px 0px #1e2538;
 }
-#next.clickBlocker:hover {
+#next.clickBlocker:hover,
+.diffTransitions.clickBlocker:hover {
   background-color: #a62b2b;
   color: #f4ebd9;
   border-color: #1a1a1a;
@@ -479,7 +482,8 @@ span strong {
   .scoreCard {
     margin-left: 300px;
   }
-  #next{
+  #next,
+  .diffTransitions{
     margin-top: 700px;
   }
 }
@@ -525,7 +529,8 @@ span strong {
     margin-bottom: 0;
     margin-top: 0;
   }
-  #next{
+  #next,
+  .diffTransitions{
     position: static;
     margin: 16px 0 20px;
     transform: none;
@@ -586,7 +591,8 @@ span strong {
   .options {
     margin-top: 10px;
   }
-  #next {
+  #next,
+  .diffTransitions {
     bottom: 18px;
   }
   .currDifficulty {

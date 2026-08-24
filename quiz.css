@@ -10,6 +10,7 @@ body {
 .quizContainer {
   height: 75vh;
   width: 65vw;
+  max-width: 1200px;
   margin-top: 18vh;
   background-color: #f4ebd9;
   border: 3px solid #1a1a1a;
@@ -85,6 +86,7 @@ p {
   margin-top: 10px;
   height: 65vh;
   width: 41vw;
+  max-width: 800px;
   display: grid;
   padding: 25px;
   justify-content: center;
@@ -177,6 +179,7 @@ button:active {
 .difficulties {
   height: 60vh;
   width: 45vw;
+  max-width: 800px;
   display: grid;
   justify-content: center;
 }
@@ -431,5 +434,110 @@ span strong {
 
   .popUp-btn {
     width: 100%;
+  }
+}
+
+@media (min-width: 651px) and (max-width: 1200px) {
+  .quizContainer {
+    width: 75vw;
+  }
+  .content {
+    width: 55vw;
+  }
+  .difficulties {
+    width: 60vw;
+  }
+  #question{
+    margin-top: 35px;
+  }
+  .options{
+    margin: 0;
+  }
+  .currDifficulty {
+    margin-right: 300px;
+  }
+  .scoreCard {
+    margin-left: 300px;
+  }
+  #next{
+    margin-top: 700px;
+  }
+}
+
+@media (max-width: 650px) {
+  .heading , #pHeading{
+    font-size: 33px;
+  }
+  .quizContainer{
+    width: 90vw;
+    margin-top: 15vh;
+  }
+  .difficulties{
+    width: 80vw;
+  }
+  .content{
+    height: auto;
+    align-content: start;
+    row-gap: 10px;
+  }
+  #question{
+     font-size: 30px;
+     line-height: normal;
+     margin-top: 70px;
+  }
+  .options{
+    width: 80vw;
+    margin-bottom: 0;
+    margin-top: 30px;
+  }
+  #next{
+    margin-top: 610px;
+  }
+  .currDifficulty{
+    margin-right: 210px;
+    width: 120px;
+    height: 30px;
+  }
+  .scoreCard{
+    margin-left: 155px;
+    width: 150px;
+    height: 30px;
+    letter-spacing: normal;
+  }
+
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 2.3rem;
+    letter-spacing: 2px;
+  }
+  .quizContainer {
+    width: 92vw;
+  }
+  .content {
+    width: 76vw;
+    padding: 15px;
+  }
+  .difficulties {
+    width: 75vw;
+  }
+  #question {
+    font-size: 23px;
+    margin-top: 60px;
+  }
+  .options {
+    margin-top: 10px;
+  }
+  #next {
+    margin-top: 460px;
+  }
+  .currDifficulty {
+    margin-right: 180px;
+    width: 120px;
+  }
+  .scoreCard {
+    margin-left: 160px;
+    width: 140px;
   }
 }

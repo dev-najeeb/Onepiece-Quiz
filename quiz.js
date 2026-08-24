@@ -17,6 +17,8 @@ let difficultyBox = document.querySelector(".currDifficulty");
 const diffTransition = document.createElement("button");
 let PopUp = document.querySelector(".popUp");
 let popupBackdrop = document.querySelector(".popupBackdrop");
+const restartBtn = document.querySelector("#restart");
+const memoryMatchBtn = document.querySelector("#memoryMatch");
 let initialBounty = "0"
 let beginnerBounty = 0 ;
 let VeteranBounty = 0;
@@ -29,6 +31,15 @@ let lastIndex = 5;
 let quizData;
 let questionData;
 let currQuestion;
+
+restartBtn.addEventListener("click", () => {
+  window.location.reload();
+});
+
+memoryMatchBtn.addEventListener("click", () => {
+  window.location.href = "https://onepiece-memory-match.netlify.app/";
+});
+
 async function loadQuizData() {
   const response = await fetch("./assets/quizData.json");
   quizData = await response.json();
@@ -189,7 +200,7 @@ function jumpDifficulties() {
       hideElements(diffTransition);
       PopUp.classList.add("visible");
       popupBackdrop.classList.add("visible");
-
+      
     }
   }
 }

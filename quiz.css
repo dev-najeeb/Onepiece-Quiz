@@ -70,6 +70,14 @@ p {
   transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: none;
 }
+#next {
+  box-sizing: border-box;
+  min-height: 30px;
+  max-width: 100%;
+  padding: 5px 10px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
 #next.active-button,
 .diffTransitions.active-button {
   display: inline;
@@ -80,6 +88,13 @@ p {
   border-color: #1e2538;
   transform: translateY(-3px);
   box-shadow: 0px 8px 0px #1e2538;
+}
+#next.clickBlocker:hover {
+  background-color: #a62b2b;
+  color: #f4ebd9;
+  border-color: #1a1a1a;
+  transform: none;
+  box-shadow: 0px 5px 0px #1e2538;
 }
 
 .content {
@@ -93,8 +108,10 @@ p {
 }
 .options {
   display: none;
-  height: 30px;
+  min-height: 30px;
   width: auto;
+  box-sizing: border-box;
+  padding: 5px 10px;
   background: #a62b2b;
   margin-bottom: 20px;
   color: #f4ebd9;
@@ -102,6 +119,8 @@ p {
   font-size: 1.1rem;
   font-weight: bold;
   letter-spacing: 1px;
+  white-space: normal;
+  overflow-wrap: anywhere;
   border: 2px solid #1e2538;
   border-radius: 50px;
   box-shadow: none;
@@ -212,6 +231,7 @@ button:active {
 .currDifficulty {
   height: auto;
   width: 150px;
+  box-sizing: border-box;
   margin-top: 5px;
   position: absolute;
   background-color: #a62b2b;
@@ -464,49 +484,68 @@ span strong {
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 655px) {
+  body{
+    font-size: medium;
+  }
   .heading , #pHeading{
     font-size: 33px;
   }
   .quizContainer{
-    width: 90vw;
+    width: calc(100vw - 24px);
+    height: auto;
+    min-height: 560px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    align-items: center;
     margin-top: 15vh;
   }
   .difficulties{
-    width: 80vw;
+    width: 100%;
+    height: auto;
   }
   .content{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
     height: auto;
-    align-content: start;
-    row-gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
   #question{
      font-size: 30px;
      line-height: normal;
-     margin-top: 70px;
+     margin-top: 35px;
   }
   .options{
-    width: 80vw;
+    width: 100%;
     margin-bottom: 0;
-    margin-top: 30px;
+    margin-top: 0;
   }
   #next{
-    margin-top: 610px;
+    position: static;
+    margin: 16px 0 20px;
+    transform: none;
   }
   .currDifficulty{
-    margin-right: 210px;
-    width: 120px;
-    height: 30px;
+    top: 12px;
+    left: 12px;
+    margin: 0;
+    width: calc(50% - 20px);
+    height: 40px;
   }
   .scoreCard{
-    margin-left: 155px;
-    width: 150px;
-    height: 30px;
+    top: 12px;
+    right: 12px;
+    margin: 0;
+    width: calc(50% - 20px);
+    height: auto;
     letter-spacing: normal;
   }
-
 }
-
 @media (max-width: 380px) {
   h1 {
     font-size: 2.3rem;
@@ -514,13 +553,31 @@ span strong {
   }
   .quizContainer {
     width: 92vw;
+    min-height: 0;
+    height: auto;
   }
   .content {
-    width: 76vw;
+    width: 100%;
     padding: 15px;
   }
   .difficulties {
     width: 75vw;
+    row-gap: 10px;
+    justify-items: center;
+  }
+  .diffBtn {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 52px;
+    height: auto;
+    padding: 8px 16px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
   #question {
     font-size: 23px;
@@ -530,14 +587,33 @@ span strong {
     margin-top: 10px;
   }
   #next {
-    margin-top: 460px;
+    bottom: 18px;
   }
   .currDifficulty {
-    margin-right: 180px;
-    width: 120px;
+    left: 8px;
+    margin: 0;
+    width: calc(52% - 14px);
+    height: auto;
+    min-height: 36px;
+    padding: 8px 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.2;
+    white-space: nowrap;
+    margin-right: 100px;
   }
   .scoreCard {
-    margin-left: 160px;
-    width: 140px;
+    right: 8px;
+    margin: 0;
+    width: calc(50% - 14px);
+    height: auto;
+    min-height: 36px;
+    padding: 8px 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.2;
+    white-space: nowrap;
   }
 }
